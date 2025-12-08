@@ -9,7 +9,7 @@ export default function Hero() {
         width={1284}
         height={480}
         style={{ objectFit: "contain" }}
-        className="contrast-150"
+        className="contrast-120"
         priority
         fetchPriority="high"
       />

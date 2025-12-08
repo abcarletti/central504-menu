@@ -214,7 +214,7 @@ export default function RootLayout({
       >
         <ThemeProvider attribute={"class"} defaultTheme={"system"} enableSystem>
           <Header />
-          <main className="flex flex-col flex-1 max-w-4xl m-auto w-full p-4">
+          <main className="flex flex-col flex-1 max-w-4xl m-auto w-full p-4 md:px-0">
             {children}
           </main>
           <Footer />
