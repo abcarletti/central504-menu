@@ -9,7 +9,7 @@ import {
 import type { Category, MenuItem } from "@/lib/api.service";
 import { UtensilsCrossed } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 function MenuItemCard({ item }: { item: MenuItem }) {
   const [imgError, setImgError] = useState(false);
@@ -74,8 +74,27 @@ interface CartaContentProps {
 }
 
 export default function CartaContent({ categories, items }: CartaContentProps) {
+  const categoryRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+  const handleValueChange = (value: string) => {
+    if (value && categoryRefs.current[value]) {
+      // Pequeño delay para que el accordion termine de abrirse
+      setTimeout(() => {
+        categoryRefs.current[value]?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 100);
+    }
+  };
+
   return (
-    <Accordion type="single" collapsible className="flex flex-col gap-2">
+    <Accordion
+      type="single"
+      collapsible
+      className="flex flex-col gap-2"
+      onValueChange={handleValueChange}
+    >
       {categories.map((category) => {
         const categoryItems = items.filter(
           (item) => item.category?.id === category.id
@@ -86,6 +105,9 @@ export default function CartaContent({ categories, items }: CartaContentProps) {
             key={category.id}
             value={category.id}
             className="border rounded-lg px-4 bg-card shadow-sm *:data-[slot=accordion-header]:top-14"
+            ref={(el) => {
+              categoryRefs.current[category.id] = el;
+            }}
           >
             <AccordionTrigger className="hover:no-underline">
               <div className="flex items-center gap-3">
