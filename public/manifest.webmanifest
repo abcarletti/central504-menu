@@ -1,0 +1,27 @@
+{
+  "name": "Central 504 - Restaurante de Cocina Española",
+  "short_name": "Central 504",
+  "description": "Restaurante de cocina española tradicional. Desayunos, brunchs, almuerzos y cenas con los mejores platos caseros.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a0a0a",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "es",
+  "categories": ["food", "restaurant", "lifestyle"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
