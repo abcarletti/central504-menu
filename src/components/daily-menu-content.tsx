@@ -114,15 +114,15 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
 
         {/* Desserts */}
         {desserts.length > 0 && (
-          <Card className="shadow-md hover:shadow-lg transition-shadow md:col-span-2">
-            <CardHeader className="bg-muted/50">
+          <Card className="shadow-md hover:shadow-lg transition-shadow md:col-span-2 pt-0">
+            <CardHeader className="bg-muted/50 h-12 items-center grid-rows-1">
               <CardTitle className="flex items-center gap-2 text-xl">
-                <Utensils className="w-5 h-5 text-primary" />
+                <Utensils className="size-5 text-primary" />
                 Postres
               </CardTitle>
             </CardHeader>
-            <CardContent className="pt-6">
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <CardContent>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {desserts.map((item, index) => (
                   <li key={item.id}>
                     <div className="flex items-start gap-3">
