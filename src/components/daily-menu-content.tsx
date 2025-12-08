@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import type { DailyMenu } from "@/lib/api.service";
-import { Calendar, Utensils } from "lucide-react";
+import { CakeSlice, Calendar, ChefHat, Utensils } from "lucide-react";
 
 interface DailyMenuContentProps {
   menu: DailyMenu;
@@ -32,7 +32,7 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
         <CardHeader className="text-center space-y-2">
           <div className="flex items-center justify-center gap-2 text-muted-foreground">
             <Calendar className="size-5" />
-            <p className="text-sm capitalize">{formatDate(menu.date)}</p>
+            <p className="text-sm">{formatDate(menu.date)}</p>
           </div>
           <CardTitle className="text-3xl md:text-4xl font-bold text-primary">
             Menú del Día
@@ -65,7 +65,7 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
                   <li key={item.id}>
                     <div className="flex items-start gap-3">
                       <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-sm font-semibold shrink-0 mt-0.5">
-                        {index + 1}
+                        <ChefHat className="size-3" />
                       </div>
                       <p className="text-foreground leading-relaxed">
                         {item.name}
@@ -96,7 +96,7 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
                   <li key={item.id}>
                     <div className="flex items-start gap-3">
                       <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-sm font-semibold shrink-0 mt-0.5">
-                        {index + 1}
+                        <ChefHat className="size-3" />
                       </div>
                       <p className="text-foreground leading-relaxed">
                         {item.name}
@@ -127,7 +127,7 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
                   <li key={item.id}>
                     <div className="flex items-start gap-3">
                       <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-sm font-semibold shrink-0 mt-0.5">
-                        {index + 1}
+                        <CakeSlice className="size-3" />
                       </div>
                       <p className="text-foreground leading-relaxed">
                         {item.name}
