@@ -30,8 +30,7 @@ export default function Location() {
       <SectionTitle title="Localización" id="location-title" />
       <p className="text-center text-gray-600 dark:text-gray-400 text-balance">
         Encuéntranos fácilmente en nuestra ubicación céntrica. Utiliza el mapa
-        interactivo a continuación para obtener indicaciones precisas y
-        planificar tu visita.
+        para obtener indicaciones precisas y planificar tu visita.
       </p>
       <div
         itemProp="address"
