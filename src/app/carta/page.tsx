@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   keywords: [
     "carta restaurante",
     "menú Central 504",
-    "bocadillos Madrid",
+    "bocadillos Pontejos",
     "hamburguesas artesanales",
     "raciones tapas",
     "ensaladas frescas",

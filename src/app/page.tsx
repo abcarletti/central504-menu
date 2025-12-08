@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Inicio",
   description:
-    "Central 504 - Tu restaurante de cocina española tradicional en Madrid. Disfruta de desayunos, brunchs, almuerzos y cenas con platos caseros de calidad. Bocadillos, hamburguesas, raciones, ensaladas y más.",
+    "Central 504 - Tu restaurante de cocina española tradicional en Pontejos. Disfruta de desayunos, brunchs, almuerzos y cenas con platos caseros de calidad. Bocadillos, hamburguesas, raciones, ensaladas y más.",
   alternates: {
     canonical: "/",
   },

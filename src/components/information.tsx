@@ -96,10 +96,10 @@ export default function Information() {
                   Correo Electrónico
                 </h3>
                 <a
-                  href="mailto:central504lounge@gmail.com"
+                  href="mailto:contacto@central504.es"
                   className="text-xl font-light text-foreground transition-colors hover:text-primary md:text-2xl"
                 >
-                  central504lounge@gmail.com
+                  contacto@central504.es
                 </a>
                 <p className="text-sm text-muted-foreground">
                   Te respondemos en menos de 24h
@@ -112,14 +112,14 @@ export default function Information() {
               <CardHeader>
                 <div className="flex justify-between items-center">
                   <div className="flex size-14 items-center justify-center rounded-full bg-primary/10">
-                    <Clock className="h-6 w-6 text-primary" />
+                    <Clock className="size-6 text-primary" />
                   </div>
                   <Badge
                     variant={isOpen ? "default" : "destructive"}
-                    className="gap-2"
+                    className="gap-2 bg-primary-foreground/10 border-primary text-primary"
                   >
                     <span
-                      className={`h-2 w-2 rounded-full ${
+                      className={`size-2 rounded-full ${
                         isOpen ? "bg-green-300" : "bg-red-300"
                       }`}
                     />

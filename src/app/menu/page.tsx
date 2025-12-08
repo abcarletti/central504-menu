@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   keywords: [
     "menú del día",
     "menú diario Central 504",
-    "comida del día Madrid",
+    "comida del día Pontejos",
     "menú económico",
     "primeros platos",
     "segundos platos",

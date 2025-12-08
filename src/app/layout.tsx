@@ -15,13 +15,13 @@ const montserrat = Montserrat({
 const siteConfig = {
   name: "Central 504",
   description:
-    "Restaurante de cocina española tradicional en Madrid. Desayunos, brunchs, almuerzos y cenas con los mejores platos: bocadillos, hamburguesas, raciones, ensaladas y más. WiFi gratuito.",
+    "Restaurante de cocina española tradicional en Pontejos. Desayunos, brunchs, almuerzos y cenas con los mejores platos: bocadillos, hamburguesas, raciones, ensaladas y más. WiFi gratuito.",
   url: "https://central504.es",
   ogImage: "/portada.webp",
   keywords: [
     "restaurante español",
     "cocina española",
-    "restaurante Madrid",
+    "restaurante Pontejos",
     "tapas",
     "raciones",
     "bocadillos",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_ES",
     url: siteConfig.url,
-    title: `${siteConfig.name} | Restaurante de Cocina Española en Madrid`,
+    title: `${siteConfig.name} | Restaurante de Cocina Española en Pontejos`,
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [
@@ -131,14 +131,14 @@ const jsonLd = {
   name: "Central 504",
   description: siteConfig.description,
   url: siteConfig.url,
-  telephone: "+34 XXX XXX XXX", // Actualiza con el teléfono real
-  email: "info@central504.es", // Actualiza con el email real
+  telephone: "+34 942 503 254", // Actualiza con el teléfono real
+  email: "contacto@central504.es", // Actualiza con el email real
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Calle Central 504", // Actualiza con la dirección real
-    addressLocality: "Madrid",
-    addressRegion: "Madrid",
-    postalCode: "28000", // Actualiza con el código postal real
+    streetAddress: "Barrio Río, 165A", // Actualiza con la dirección real
+    addressLocality: "Pontejos",
+    addressRegion: "Cantabria",
+    postalCode: "39618", // Actualiza con el código postal real
     addressCountry: "ES",
   },
   geo: {
