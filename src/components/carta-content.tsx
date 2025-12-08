@@ -9,7 +9,7 @@ import {
 import type { Category, MenuItem } from "@/lib/api.service";
 import { UtensilsCrossed } from "lucide-react";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function MenuItemCard({ item }: { item: MenuItem }) {
   const [imgError, setImgError] = useState(false);
@@ -75,14 +75,40 @@ interface CartaContentProps {
 
 export default function CartaContent({ categories, items }: CartaContentProps) {
   const categoryRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const initialPositions = useRef<{ [key: string]: number }>({});
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    // Guardar las posiciones iniciales de cada categoría
+    const saveInitialPositions = () => {
+      Object.keys(categoryRefs.current).forEach((key) => {
+        const element = categoryRefs.current[key];
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          initialPositions.current[key] = rect.top + window.pageYOffset - 55;
+        }
+      });
+    };
+
+    // Esperar un momento para que el DOM esté completamente cargado
+    const timeoutId = setTimeout(saveInitialPositions, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
 
   const handleValueChange = (value: string) => {
-    if (value && categoryRefs.current[value]) {
-      // Pequeño delay para que el accordion termine de abrirse
-      setTimeout(() => {
-        categoryRefs.current[value]?.scrollIntoView({
+    // Limpiar el timeout anterior si existe
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+
+    if (value && initialPositions.current[value] !== undefined) {
+      scrollTimeoutRef.current = setTimeout(() => {
+        window.scrollTo({
+          top: initialPositions.current[value],
           behavior: "smooth",
-          block: "start",
         });
       }, 100);
     }
@@ -104,7 +130,7 @@ export default function CartaContent({ categories, items }: CartaContentProps) {
           <AccordionItem
             key={category.id}
             value={category.id}
-            className="border rounded-lg px-4 bg-card shadow-sm *:data-[slot=accordion-header]:top-14"
+            className="border rounded-lg px-4 bg-card shadow-sm *:data-[slot=accordion-header]:top-13"
             ref={(el) => {
               categoryRefs.current[category.id] = el;
             }}
