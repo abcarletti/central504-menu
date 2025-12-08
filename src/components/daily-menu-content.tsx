@@ -146,7 +146,7 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
 
       {/* Footer Note */}
       <Card className="border-dashed">
-        <CardContent className="text-center text-sm text-muted-foreground">
+        <CardContent className="text-center text-sm text-muted-foreground space-y-2">
           <p>
             <span className="font-bold">BEBIDAS:</span> ½ Vino tinto de la casa
             | Agua | Gaseosa
