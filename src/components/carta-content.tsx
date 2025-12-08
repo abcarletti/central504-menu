@@ -17,11 +17,11 @@ function MenuItemCard({ item }: { item: MenuItem }) {
 
   return (
     <article
-      className="flex gap-4 p-4 bg-card rounded-lg border shadow-sm hover:shadow-md transition-shadow"
+      className="flex gap-4 bg-card rounded-lg border border-primary/20 shadow-sm hover:shadow-md transition-shadow"
       itemScope
       itemType="https://schema.org/MenuItem"
     >
-      <div className="relative w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-lg overflow-hidden bg-muted">
+      <div className="relative w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-l-lg overflow-hidden bg-muted">
         {showImage ? (
           <Image
             src={item.fileUrl as string}
@@ -38,7 +38,7 @@ function MenuItemCard({ item }: { item: MenuItem }) {
           </div>
         )}
       </div>
-      <div className="flex flex-col flex-1 justify-between min-w-0">
+      <div className="flex flex-col flex-1 justify-between min-w-0 p-2">
         <div>
           <h3 className="font-semibold text-foreground" itemProp="name">
             {item.name}
