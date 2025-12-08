@@ -72,7 +72,7 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
                       </p>
                     </div>
                     {index < firstCourses.length - 1 && (
-                      <Separator className="mt-4" />
+                      <Separator className="mt-4 bg-primary/20" />
                     )}
                   </li>
                 ))}
@@ -103,7 +103,7 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
                       </p>
                     </div>
                     {index < secondCourses.length - 1 && (
-                      <Separator className="mt-4" />
+                      <Separator className="mt-4 bg-primary/20" />
                     )}
                   </li>
                 ))}
@@ -133,6 +133,9 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
                         {item.name}
                       </p>
                     </div>
+                    {index < desserts.length - 1 && (
+                      <Separator className="mt-4 bg-primary/20" />
+                    )}
                   </li>
                 ))}
               </ul>
