@@ -65,7 +65,7 @@ export default async function DailyMenuPage() {
 
   if (!menu) {
     return (
-      <div className="mt-6">
+      <div>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -88,7 +88,7 @@ export default async function DailyMenuPage() {
   }
 
   return (
-    <div className="mt-6" itemScope itemType="https://schema.org/Menu">
+    <div itemScope itemType="https://schema.org/Menu">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

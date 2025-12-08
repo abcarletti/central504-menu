@@ -26,7 +26,7 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-4">
+    <div className="space-y-4">
       {/* Header Card */}
       <Card className="border border-primary shadow-lg">
         <CardHeader className="text-center space-y-2">

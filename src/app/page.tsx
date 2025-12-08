@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <section className="space-y-20 py-4">
+    <section className="space-y-20">
       <Hero />
       <Services />
       <Information />
