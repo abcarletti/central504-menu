@@ -31,14 +31,47 @@ export const metadata: Metadata = {
       "Explora nuestra carta con bocadillos, ensaladas, hamburguesas, raciones y más. Platos tradicionales españoles a precios accesibles.",
     url: "/carta",
     type: "website",
+    images: [
+      {
+        url: "/portada.webp",
+        width: 1284,
+        height: 480,
+        alt: "Carta - Central 504",
+      },
+    ],
   },
 };
 
 export default async function CartaPage() {
   const { items, categories } = await fetchMenuData();
 
+  // Breadcrumb JSON-LD para SEO
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Inicio",
+        item: "https://central504.es",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Carta",
+        item: "https://central504.es/carta",
+      },
+    ],
+  };
+
   return (
     <div className="mt-6" itemScope itemType="https://schema.org/Menu">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       <header className="text-center mb-8">
         <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
           Nuestra Carta

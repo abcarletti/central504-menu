@@ -54,12 +54,12 @@ export default function Header() {
           </Link>
           <Link
             className={`hover:opacity-80${
-              pathname === "/menu-del-dia"
+              pathname === "/menu"
                 ? " font-bold bg-linear-to-t from-primary to-white bg-clip-text text-transparent"
                 : ""
             }`}
-            href="/menu-del-dia"
-            aria-current={pathname === "/menu-del-dia" ? "page" : undefined}
+            href="/menu"
+            aria-current={pathname === "/menu" ? "page" : undefined}
           >
             Menú del día
           </Link>
