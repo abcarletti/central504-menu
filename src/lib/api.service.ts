@@ -92,6 +92,11 @@ export const fetchDailyMenu = async (): Promise<DailyMenu | null> => {
     throw new Error("Error al obtener el menú del día");
   }
 
-  const data = await res.json();
-  return data || null;
+  try {
+    const data = await res.json();
+    return data || null;
+  } catch (error) {
+    console.error("Error parsing daily menu JSON:", error);
+    return null;
+  }
 };
