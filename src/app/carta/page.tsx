@@ -2,6 +2,8 @@ import CartaContent from "@/components/carta-content";
 import { fetchMenuData } from "@/lib/api.service";
 import type { Metadata } from "next";
 
+// Forzar renderizado dinámico (sin pre-render en build)
+export const dynamic = "force-dynamic";
 // Revalidar cada 15 minutos (900 segundos)
 export const revalidate = 900;
 
