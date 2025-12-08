@@ -60,12 +60,12 @@ export default function Information() {
       <section className="w-full mt-2">
         <div className="space-y-6">
           {/* Content Grid */}
-          <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
+          <div className="grid gap-3 grid-cols-1 md:grid-cols-2">
             {/* Teléfono */}
             <Card className="group transition-all duration-300 border-primary/30 hover:border-primary hover:shadow-lg">
-              <CardHeader className="pb-2">
+              <CardHeader>
                 <div className="flex size-14 items-center justify-center rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />
+                  <Phone className="size-6 text-primary" />
                 </div>
               </CardHeader>
               <CardContent className="space-y-2">
@@ -86,9 +86,9 @@ export default function Information() {
 
             {/* Email */}
             <Card className="group transition-all duration-300 border-primary/30 hover:border-primary hover:shadow-lg">
-              <CardHeader className="pb-2">
+              <CardHeader>
                 <div className="flex size-14 items-center justify-center rounded-full bg-primary/10">
-                  <Mail className="h-6 w-6 text-primary" />
+                  <Mail className="size-6 text-primary" />
                 </div>
               </CardHeader>
               <CardContent className="space-y-2">
