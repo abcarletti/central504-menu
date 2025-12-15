@@ -11,8 +11,6 @@ const LocationMap = dynamic(() => import("./location-map"), {
     <div
       style={{ height: "400px", width: "100%", borderRadius: "1rem" }}
       className="bg-muted animate-pulse flex items-center justify-center"
-      role="img"
-      aria-label="Cargando mapa de ubicación"
     >
       <span className="text-muted-foreground">Cargando mapa...</span>
     </div>

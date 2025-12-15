@@ -31,7 +31,6 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
       {/* Header Card */}
       <Card
         className="border border-primary shadow-lg"
-        role="region"
         aria-labelledby="daily-menu-title"
       >
         <CardHeader className="text-center space-y-2">
