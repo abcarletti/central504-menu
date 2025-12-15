@@ -16,7 +16,7 @@ export default function Header() {
             src="/logo-white.png"
             alt="Central 504 - Restaurante de cocina española"
             width={48}
-            height={48}
+            height={26}
             className="hidden dark:block"
             priority
           />
@@ -24,7 +24,7 @@ export default function Header() {
             src="/logo-dark.png"
             alt="Central 504 - Restaurante de cocina española"
             width={48}
-            height={48}
+            height={26}
             className="block dark:hidden"
             priority
           />

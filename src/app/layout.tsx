@@ -95,16 +95,16 @@ export const metadata: Metadata = {
   },
   // Next.js detecta automáticamente icon.png en src/app/
   // También puedes añadir iconos adicionales en /public
-  icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
-    ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-  },
+  // icons: {
+  //   icon: [
+  //     { url: "/icon.svg", type: "image/svg+xml" },
+  //     { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+  //     { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+  //   ],
+  //   apple: [
+  //     { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+  //   ],
+  // },
   manifest: "/manifest.webmanifest",
   verification: {
     // Añade tus códigos de verificación cuando los tengas

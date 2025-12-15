@@ -25,12 +25,17 @@ export function ShareButton({ title, text, url }: ShareButtonProps) {
       });
     } catch (err) {
       // El usuario puede cancelar el share, no es un error grave
-      console.error("Error al compartir", err);
+      console.debug("El usuario ha cancelado la acción de compartir.", err);
     }
   };
 
   return (
-    <Button variant={"outline"} size={"sm"} title="Compartir" onClick={handleShare}>
+    <Button
+      variant={"outline"}
+      size={"sm"}
+      title="Compartir"
+      onClick={handleShare}
+    >
       <Share2 className="size-4" /> Compartir
     </Button>
   );
