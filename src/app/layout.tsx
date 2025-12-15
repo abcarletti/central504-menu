@@ -149,10 +149,7 @@ const jsonLd = {
     latitude: 40.4168,
     longitude: -3.7038,
   },
-  image: [
-    `${siteConfig.url}/portada.webp`,
-    `${siteConfig.url}/logo-dark.png`,
-  ],
+  image: [`${siteConfig.url}/portada.webp`, `${siteConfig.url}/logo-dark.png`],
   logo: `${siteConfig.url}/logo-dark.png`,
   priceRange: "€€",
   servesCuisine: ["Española", "Mediterránea", "Tradicional"],
@@ -264,7 +261,10 @@ export default function RootLayout({
             Saltar al contenido principal
           </a>
           <Header />
-          <main id="main-content" className="flex flex-col flex-1 max-w-4xl m-auto w-full p-4 md:px-0">
+          <main
+            id="main-content"
+            className="flex flex-col flex-1 max-w-4xl m-auto w-full p-4 md:px-0"
+          >
             {children}
           </main>
           <Footer />

@@ -69,9 +69,14 @@ export default function LocationMap() {
         attribution='&copy; <a href="https://www.esri.com/">Esri</a>'
         url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
       />
-      <Marker position={POSITION} icon={customIcon} aria-label="Ubicación de Central 504">
+      <Marker
+        position={POSITION}
+        icon={customIcon}
+        aria-label="Ubicación de Central 504"
+      >
         <Popup>
-          <strong>Central 504</strong><br />
+          <strong>Central 504</strong>
+          <br />
           Ven a visitarnos para pasar un rato agradable bebiendo, comiendo o
           disfrutando de los mejores eventos deportivos.
         </Popup>

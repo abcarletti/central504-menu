@@ -37,7 +37,9 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
       />
-      <h1 className="sr-only">Central 504 - Restaurante de Cocina Española en Pontejos</h1>
+      <h1 className="sr-only">
+        Central 504 - Restaurante de Cocina Española en Pontejos
+      </h1>
       <div className="space-y-20">
         <Hero />
         <Services />

@@ -50,7 +50,10 @@ export default function Information() {
   const isOpen = getIsOpen();
 
   return (
-    <section className="space-y-4 w-full flex flex-col items-center max-w-4xl" aria-labelledby="information-title">
+    <section
+      className="space-y-4 w-full flex flex-col items-center max-w-4xl"
+      aria-labelledby="information-title"
+    >
       <SectionTitle title="Información" id="information-title" />
       <p className="text-center text-gray-600 dark:text-gray-400 text-balance">
         En Central 504, nos comprometemos a brindarte la mejor experiencia
@@ -133,7 +136,10 @@ export default function Information() {
                 <h3 className="mb-4 text-sm font-medium uppercase tracking-wider text-muted-foreground">
                   Horario
                 </h3>
-                <ul className="space-y-2" aria-label="Horario de apertura semanal">
+                <ul
+                  className="space-y-2"
+                  aria-label="Horario de apertura semanal"
+                >
                   {schedule.map((item) => (
                     <li
                       key={item.day}

@@ -29,13 +29,20 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
   return (
     <div className="space-y-4">
       {/* Header Card */}
-      <Card className="border border-primary shadow-lg" role="region" aria-labelledby="daily-menu-title">
+      <Card
+        className="border border-primary shadow-lg"
+        role="region"
+        aria-labelledby="daily-menu-title"
+      >
         <CardHeader className="text-center space-y-2">
           <div className="flex items-center justify-center gap-2 text-muted-foreground">
             <Calendar className="size-5" />
             <p className="text-sm">{formatDate(menu.date)}</p>
           </div>
-          <CardTitle id="daily-menu-title" className="text-3xl md:text-4xl font-bold text-primary">
+          <CardTitle
+            id="daily-menu-title"
+            className="text-3xl md:text-4xl font-bold text-primary"
+          >
             Menú del día
           </CardTitle>
           <div className="flex items-center justify-center gap-2">
@@ -129,7 +136,10 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3" aria-label="Lista de postres">
+              <ul
+                className="grid grid-cols-1 md:grid-cols-2 gap-3"
+                aria-label="Lista de postres"
+              >
                 {desserts.map((item, index) => (
                   <li key={item.id}>
                     <div className="flex items-start gap-3">
