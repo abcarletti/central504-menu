@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/menu-del-dia`,
+      url: `${baseUrl}/menu`,
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.8,

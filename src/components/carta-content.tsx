@@ -120,6 +120,7 @@ export default function CartaContent({ categories, items }: CartaContentProps) {
       collapsible
       className="flex flex-col gap-2"
       onValueChange={handleValueChange}
+      aria-label="Categorías de la carta del restaurante"
     >
       {categories.map((category) => {
         const categoryItems = items.filter(

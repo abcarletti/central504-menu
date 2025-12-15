@@ -70,7 +70,7 @@ const ServiceComponent = ({
 }) => {
   return (
     <div className="flex flex-col items-center justify-center py-6 border-2 border-primary rounded-lg gap-2 min-w-52 aspect-auto">
-      <Icon className="w-8 h-8 text-primary" />
+      <Icon className="w-8 h-8 text-primary" aria-hidden="true" />
       <p className="text-lg font-medium text-center">{title}</p>
     </div>
   );
@@ -78,8 +78,8 @@ const ServiceComponent = ({
 
 export default function Services() {
   return (
-    <div className="space-y-4">
-      <SectionTitle title="Servicios" />
+    <section className="space-y-4" aria-labelledby="services-title">
+      <SectionTitle title="Servicios" id="services-title" />
       <p className="text-center text-gray-600 dark:text-gray-400 text-balance">
         En Central 504, nos esforzamos por ofrecerte una experiencia
         excepcional. Descubre nuestros servicios diseñados para tu comodidad y
@@ -96,6 +96,6 @@ export default function Services() {
           ))}
         </InfiniteSlider>
       </div>
-    </div>
+    </section>
   );
 }

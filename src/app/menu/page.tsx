@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     "oferta diaria restaurante",
   ],
   alternates: {
-    canonical: "/menu-del-dia",
+    canonical: "/menu",
   },
   openGraph: {
     title: "Menú del Día - Central 504 | Comida Casera Española",
     description:
       "Disfruta de nuestro menú del día con primeros y segundos platos de cocina tradicional española a precio especial.",
-    url: "/menu-del-dia",
+    url: "/menu",
     type: "website",
     images: [
       {
@@ -58,7 +58,7 @@ export default async function DailyMenuPage() {
         "@type": "ListItem",
         position: 2,
         name: "Menú del Día",
-        item: "https://central504.es/menu-del-dia",
+        item: "https://central504.es/menu",
       },
     ],
   };
@@ -88,13 +88,13 @@ export default async function DailyMenuPage() {
   }
 
   return (
-    <div itemScope itemType="https://schema.org/Menu">
+    <article itemScope itemType="https://schema.org/Menu">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <DailyMenuContent menu={menu} />
-    </div>
+    </article>
   );
 }

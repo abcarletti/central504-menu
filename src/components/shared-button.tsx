@@ -35,8 +35,9 @@ export function ShareButton({ title, text, url }: ShareButtonProps) {
       size={"sm"}
       title="Compartir"
       onClick={handleShare}
+      aria-label={`Compartir ${title}`}
     >
-      <Share2 className="size-4" /> Compartir
+      <Share2 className="size-4" aria-hidden="true" /> Compartir
     </Button>
   );
 }

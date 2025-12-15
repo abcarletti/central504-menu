@@ -66,7 +66,7 @@ export default async function CartaPage() {
   };
 
   return (
-    <div itemScope itemType="https://schema.org/Menu">
+    <article itemScope itemType="https://schema.org/Menu">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -83,6 +83,6 @@ export default async function CartaPage() {
       </header>
 
       <CartaContent categories={categories} items={items} />
-    </div>
+    </article>
   );
 }

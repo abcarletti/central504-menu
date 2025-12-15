@@ -11,6 +11,17 @@ const nextConfig: NextConfig = {
   // Solo usar output standalone en producción
   ...(process.env.NODE_ENV === "production" && { output: "standalone" }),
 
+  // Redirects para SEO y mejores URLs
+  async redirects() {
+    return [
+      {
+        source: "/menu-del-dia",
+        destination: "/menu",
+        permanent: true,
+      },
+    ];
+  },
+
   // Headers para mejorar SEO y seguridad
   async headers() {
     return [
@@ -32,6 +43,10 @@ const nextConfig: NextConfig = {
           {
             key: "Referrer-Policy",
             value: "origin-when-cross-origin",
+          },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
           },
         ],
       },
