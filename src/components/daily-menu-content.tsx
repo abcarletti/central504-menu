@@ -4,7 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import type { DailyMenu } from "@/lib/api.service";
-import { CakeSlice, Calendar, ChefHat, CookingPot, Utensils } from "lucide-react";
+import { CakeSlice, Calendar, CookingPot, Utensils } from "lucide-react";
+import { ShareButton } from "./shared-button";
 
 interface DailyMenuContentProps {
   menu: DailyMenu;
@@ -35,7 +36,7 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
             <p className="text-sm">{formatDate(menu.date)}</p>
           </div>
           <CardTitle className="text-3xl md:text-4xl font-bold text-primary">
-            Menú del Día
+            Menú del día
           </CardTitle>
           <div className="flex items-center justify-center gap-2">
             <Badge
@@ -45,6 +46,12 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
               {menu.price.toFixed(2)} €
             </Badge>
           </div>
+          <ShareButton
+            title="Central504 - Menú del día"
+            text={`Mira lo bien que está el menú del día de la Central 504 para hoy por: ${menu.price.toFixed(
+              2
+            )} €`}
+          />
         </CardHeader>
       </Card>
 
