@@ -1,0 +1,11 @@
+# robots.txt para Central 504
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://central504.es/sitemap.xml
+
+# Crawl-delay para ser amigable con los bots
+Crawl-delay: 1

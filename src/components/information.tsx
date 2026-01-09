@@ -50,22 +50,25 @@ export default function Information() {
   const isOpen = getIsOpen();
 
   return (
-    <div className="space-y-4 w-full flex flex-col items-center max-w-4xl">
-      <SectionTitle title="Información" />
+    <section
+      className="space-y-4 w-full flex flex-col items-center max-w-4xl"
+      aria-labelledby="information-title"
+    >
+      <SectionTitle title="Información" id="information-title" />
       <p className="text-center text-gray-600 dark:text-gray-400 text-balance">
         En Central 504, nos comprometemos a brindarte la mejor experiencia
         posible. Aquí encontrarás toda la información que necesitas para
         disfrutar de nuestros servicios al máximo.
       </p>
-      <section className="w-full mt-2">
+      <div className="w-full mt-2">
         <div className="space-y-6">
           {/* Content Grid */}
-          <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
+          <div className="grid gap-3 grid-cols-1 md:grid-cols-2">
             {/* Teléfono */}
             <Card className="group transition-all duration-300 border-primary/30 hover:border-primary hover:shadow-lg">
-              <CardHeader className="pb-2">
+              <CardHeader>
                 <div className="flex size-14 items-center justify-center rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />
+                  <Phone className="size-6 text-primary" />
                 </div>
               </CardHeader>
               <CardContent className="space-y-2">
@@ -75,6 +78,7 @@ export default function Information() {
                 <a
                   href="tel:+34942503254"
                   className="text-2xl font-light text-foreground transition-colors hover:text-primary"
+                  aria-label="Llamar al teléfono 942 50 32 54"
                 >
                   942 50 32 54
                 </a>
@@ -86,9 +90,9 @@ export default function Information() {
 
             {/* Email */}
             <Card className="group transition-all duration-300 border-primary/30 hover:border-primary hover:shadow-lg">
-              <CardHeader className="pb-2">
+              <CardHeader>
                 <div className="flex size-14 items-center justify-center rounded-full bg-primary/10">
-                  <Mail className="h-6 w-6 text-primary" />
+                  <Mail className="size-6 text-primary" />
                 </div>
               </CardHeader>
               <CardContent className="space-y-2">
@@ -96,10 +100,11 @@ export default function Information() {
                   Correo Electrónico
                 </h3>
                 <a
-                  href="mailto:central504lounge@gmail.com"
+                  href="mailto:contacto@central504.es"
                   className="text-xl font-light text-foreground transition-colors hover:text-primary md:text-2xl"
+                  aria-label="Enviar correo a contacto@central504.es"
                 >
-                  central504lounge@gmail.com
+                  contacto@central504.es
                 </a>
                 <p className="text-sm text-muted-foreground">
                   Te respondemos en menos de 24h
@@ -112,14 +117,14 @@ export default function Information() {
               <CardHeader>
                 <div className="flex justify-between items-center">
                   <div className="flex size-14 items-center justify-center rounded-full bg-primary/10">
-                    <Clock className="h-6 w-6 text-primary" />
+                    <Clock className="size-6 text-primary" />
                   </div>
                   <Badge
                     variant={isOpen ? "default" : "destructive"}
-                    className="gap-2"
+                    className="gap-2 bg-primary-foreground/10 border-primary text-primary"
                   >
                     <span
-                      className={`h-2 w-2 rounded-full ${
+                      className={`size-2 rounded-full ${
                         isOpen ? "bg-green-300" : "bg-red-300"
                       }`}
                     />
@@ -131,7 +136,10 @@ export default function Information() {
                 <h3 className="mb-4 text-sm font-medium uppercase tracking-wider text-muted-foreground">
                   Horario
                 </h3>
-                <ul className="space-y-2">
+                <ul
+                  className="space-y-2"
+                  aria-label="Horario de apertura semanal"
+                >
                   {schedule.map((item) => (
                     <li
                       key={item.day}
@@ -164,7 +172,7 @@ export default function Information() {
             </Button>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

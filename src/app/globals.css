@@ -185,4 +185,47 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Mejoras de accesibilidad */
+  /* Enfoque visible mejorado para navegación por teclado */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  /* Mejora el enfoque de enlaces */
+  a:focus-visible {
+    @apply outline-2 outline-ring rounded-sm;
+  }
+
+  /* Mejora el enfoque de botones */
+  button:focus-visible {
+    @apply outline-2 outline-ring;
+  }
+
+  /* Asegurar que los elementos interactivos sean distinguibles */
+  a,
+  button,
+  [role="button"],
+  input,
+  textarea,
+  select {
+    @apply focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2;
+  }
+
+  /* Reducir movimiento para usuarios que lo prefieren */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Mejorar contraste de texto seleccionado */
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
 }

@@ -4,7 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import type { DailyMenu } from "@/lib/api.service";
-import { Calendar, Utensils } from "lucide-react";
+import { CakeSlice, Calendar, CookingPot, Utensils } from "lucide-react";
+import { ShareButton } from "./shared-button";
 
 interface DailyMenuContentProps {
   menu: DailyMenu;
@@ -26,16 +27,22 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-4">
+    <div className="space-y-4">
       {/* Header Card */}
-      <Card className="border-2 border-primary shadow-lg">
+      <Card
+        className="border border-primary shadow-lg"
+        aria-labelledby="daily-menu-title"
+      >
         <CardHeader className="text-center space-y-2">
           <div className="flex items-center justify-center gap-2 text-muted-foreground">
             <Calendar className="size-5" />
-            <p className="text-sm capitalize">{formatDate(menu.date)}</p>
+            <p className="text-sm">{formatDate(menu.date)}</p>
           </div>
-          <CardTitle className="text-3xl md:text-4xl font-bold text-primary">
-            Menú del Día
+          <CardTitle
+            id="daily-menu-title"
+            className="text-3xl md:text-4xl font-bold text-primary"
+          >
+            Menú del día
           </CardTitle>
           <div className="flex items-center justify-center gap-2">
             <Badge
@@ -45,6 +52,12 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
               {menu.price.toFixed(2)} €
             </Badge>
           </div>
+          <ShareButton
+            title="Central504 - Menú del día"
+            text={`Mira lo bien que está el menú del día de la Central 504 para hoy por: ${menu.price.toFixed(
+              2
+            )} €`}
+          />
         </CardHeader>
       </Card>
 
@@ -55,7 +68,7 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
           <Card className="shadow-md hover:shadow-lg transition-shadow pt-0">
             <CardHeader className="bg-muted/50 h-12 items-center grid-rows-1">
               <CardTitle className="flex items-center gap-2 text-xl">
-                <Utensils className="size-5 text-primary" />
+                <CookingPot className="size-5 text-primary" />
                 Primeros Platos
               </CardTitle>
             </CardHeader>
@@ -65,14 +78,14 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
                   <li key={item.id}>
                     <div className="flex items-start gap-3">
                       <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-sm font-semibold shrink-0 mt-0.5">
-                        {index + 1}
+                        <CookingPot className="size-3" />
                       </div>
                       <p className="text-foreground leading-relaxed">
                         {item.name}
                       </p>
                     </div>
                     {index < firstCourses.length - 1 && (
-                      <Separator className="mt-4" />
+                      <Separator className="mt-4 bg-primary/20" />
                     )}
                   </li>
                 ))}
@@ -91,19 +104,19 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
               </CardTitle>
             </CardHeader>
             <CardContent className="">
-              <ul className="space-y-4">
+              <ul className="space-y-4" aria-label="Lista de primeros platos">
                 {secondCourses.map((item, index) => (
                   <li key={item.id}>
                     <div className="flex items-start gap-3">
                       <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-sm font-semibold shrink-0 mt-0.5">
-                        {index + 1}
+                        <Utensils className="size-3" />
                       </div>
                       <p className="text-foreground leading-relaxed">
                         {item.name}
                       </p>
                     </div>
                     {index < secondCourses.length - 1 && (
-                      <Separator className="mt-4" />
+                      <Separator className="mt-4 bg-primary/20" />
                     )}
                   </li>
                 ))}
@@ -114,25 +127,31 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
 
         {/* Desserts */}
         {desserts.length > 0 && (
-          <Card className="shadow-md hover:shadow-lg transition-shadow md:col-span-2">
-            <CardHeader className="bg-muted/50">
+          <Card className="shadow-md hover:shadow-lg transition-shadow md:col-span-2 pt-0">
+            <CardHeader className="bg-muted/50 h-12 items-center grid-rows-1">
               <CardTitle className="flex items-center gap-2 text-xl">
-                <Utensils className="w-5 h-5 text-primary" />
+                <CakeSlice className="size-5 text-primary" />
                 Postres
               </CardTitle>
             </CardHeader>
-            <CardContent className="pt-6">
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <CardContent>
+              <ul
+                className="grid grid-cols-1 md:grid-cols-2 gap-3"
+                aria-label="Lista de postres"
+              >
                 {desserts.map((item, index) => (
                   <li key={item.id}>
                     <div className="flex items-start gap-3">
                       <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-sm font-semibold shrink-0 mt-0.5">
-                        {index + 1}
+                        <CakeSlice className="size-3" />
                       </div>
                       <p className="text-foreground leading-relaxed">
                         {item.name}
                       </p>
                     </div>
+                    {index < desserts.length - 1 && (
+                      <Separator className="mt-4 bg-primary/20" />
+                    )}
                   </li>
                 ))}
               </ul>
@@ -143,7 +162,7 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
 
       {/* Footer Note */}
       <Card className="border-dashed">
-        <CardContent className="text-center text-sm text-muted-foreground">
+        <CardContent className="text-center text-sm text-muted-foreground space-y-2">
           <p>
             <span className="font-bold">BEBIDAS:</span> ½ Vino tinto de la casa
             | Agua | Gaseosa

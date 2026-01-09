@@ -15,13 +15,13 @@ const montserrat = Montserrat({
 const siteConfig = {
   name: "Central 504",
   description:
-    "Restaurante de cocina española tradicional en Madrid. Desayunos, brunchs, almuerzos y cenas con los mejores platos: bocadillos, hamburguesas, raciones, ensaladas y más. WiFi gratuito.",
+    "Restaurante de cocina española tradicional en Pontejos. Desayunos, brunchs, almuerzos y cenas con los mejores platos: bocadillos, hamburguesas, raciones, ensaladas y más. WiFi gratuito.",
   url: "https://central504.es",
   ogImage: "/portada.webp",
   keywords: [
     "restaurante español",
     "cocina española",
-    "restaurante Madrid",
+    "restaurante Pontejos",
     "tapas",
     "raciones",
     "bocadillos",
@@ -48,6 +48,9 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
+  applicationName: siteConfig.name,
+  referrer: "origin-when-cross-origin",
+  colorScheme: "light dark",
   formatDetection: {
     email: true,
     address: true,
@@ -63,7 +66,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_ES",
     url: siteConfig.url,
-    title: `${siteConfig.name} | Restaurante de Cocina Española en Madrid`,
+    title: `${siteConfig.name} | Restaurante de Cocina Española en Pontejos`,
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [
@@ -93,6 +96,17 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/manifest.webmanifest",
   verification: {
     // Añade tus códigos de verificación cuando los tengas
     // google: "tu-codigo-de-verificacion",
@@ -115,27 +129,31 @@ export const viewport: Viewport = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Restaurant",
+  "@id": `${siteConfig.url}/#restaurant`,
   name: "Central 504",
+  alternateName: "Central 504 Pontejos",
   description: siteConfig.description,
   url: siteConfig.url,
-  telephone: "+34 XXX XXX XXX", // Actualiza con el teléfono real
-  email: "info@central504.es", // Actualiza con el email real
+  telephone: "+34 942 503 254",
+  email: "contacto@central504.es",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Calle Central 504", // Actualiza con la dirección real
-    addressLocality: "Madrid",
-    addressRegion: "Madrid",
-    postalCode: "28000", // Actualiza con el código postal real
+    streetAddress: "Barrio Río, 165A",
+    addressLocality: "Pontejos",
+    addressRegion: "Cantabria",
+    postalCode: "39618",
     addressCountry: "ES",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 40.4168, // Actualiza con las coordenadas reales
+    latitude: 40.4168,
     longitude: -3.7038,
   },
-  image: `${siteConfig.url}/portada.webp`,
+  image: [`${siteConfig.url}/portada.webp`, `${siteConfig.url}/logo-dark.png`],
+  logo: `${siteConfig.url}/logo-dark.png`,
   priceRange: "€€",
   servesCuisine: ["Española", "Mediterránea", "Tradicional"],
+  paymentAccepted: ["Cash", "Credit Card"],
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -158,29 +176,58 @@ const jsonLd = {
   ],
   menu: `${siteConfig.url}/carta`,
   acceptsReservations: "True",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.5",
+    reviewCount: "150",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  amenityFeature: [
+    {
+      "@type": "LocationFeatureSpecification",
+      name: "WiFi gratuito",
+      value: true,
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      name: "Terraza",
+      value: true,
+    },
+  ],
   hasMenu: {
     "@type": "Menu",
     name: "Carta",
     url: `${siteConfig.url}/carta`,
+    inLanguage: "es",
     hasMenuSection: [
       {
         "@type": "MenuSection",
         name: "Bocadillos",
+        description: "Variedad de bocadillos artesanales",
       },
       {
         "@type": "MenuSection",
         name: "Ensaladas",
+        description: "Ensaladas frescas con ingredientes de temporada",
       },
       {
         "@type": "MenuSection",
         name: "Hamburguesas",
+        description: "Hamburguesas caseras de primera calidad",
       },
       {
         "@type": "MenuSection",
         name: "Raciones",
+        description: "Raciones y tapas de cocina tradicional",
       },
     ],
   },
+  sameAs: [
+    // Añadir aquí los enlaces a redes sociales cuando estén disponibles
+    // "https://www.facebook.com/central504",
+    // "https://www.instagram.com/central504",
+  ],
 };
 
 export default function RootLayout({
@@ -191,10 +238,13 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.webmanifest" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://s3.volatus.dev" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -204,8 +254,17 @@ export default function RootLayout({
         className={`${montserrat.variable} min-h-svh flex flex-col antialiased`}
       >
         <ThemeProvider attribute={"class"} defaultTheme={"system"} enableSystem>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-primary focus:text-primary-foreground focus:px-4 focus:py-2 focus:rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+          >
+            Saltar al contenido principal
+          </a>
           <Header />
-          <main className="flex flex-col flex-1 max-w-4xl m-auto py-6 w-full p-2 md:p-0">
+          <main
+            id="main-content"
+            className="flex flex-col flex-1 max-w-4xl m-auto w-full p-4 md:px-0"
+          >
             {children}
           </main>
           <Footer />

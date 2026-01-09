@@ -11,8 +11,6 @@ const LocationMap = dynamic(() => import("./location-map"), {
     <div
       style={{ height: "400px", width: "100%", borderRadius: "1rem" }}
       className="bg-muted animate-pulse flex items-center justify-center"
-      role="img"
-      aria-label="Cargando mapa de ubicación"
     >
       <span className="text-muted-foreground">Cargando mapa...</span>
     </div>
@@ -30,16 +28,21 @@ export default function Location() {
       <SectionTitle title="Localización" id="location-title" />
       <p className="text-center text-gray-600 dark:text-gray-400 text-balance">
         Encuéntranos fácilmente en nuestra ubicación céntrica. Utiliza el mapa
-        interactivo a continuación para obtener indicaciones precisas y
-        planificar tu visita.
+        para obtener indicaciones precisas y planificar tu visita.
       </p>
       <div
         itemProp="address"
         itemScope
         itemType="https://schema.org/PostalAddress"
+        className="text-center mb-4"
       >
-        <meta itemProp="addressLocality" content="Madrid" />
-        <meta itemProp="addressCountry" content="ES" />
+        <p className="text-lg font-medium text-gray-900 dark:text-gray-100">
+          <span itemProp="streetAddress">Barrio Río, 165A</span>,{" "}
+          <span itemProp="postalCode">39618</span>.{" "}
+          <span itemProp="addressLocality">Pontejos</span>,{" "}
+          <span itemProp="addressRegion">Cantabria</span> (
+          <span itemProp="addressCountry">España</span>)
+        </p>
       </div>
       <LocationMap />
       <div className="text-center">

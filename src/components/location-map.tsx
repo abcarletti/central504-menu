@@ -62,13 +62,20 @@ export default function LocationMap() {
       zoomControl={false}
       style={{ height: "400px", width: "100%", borderRadius: "1rem" }}
       dragging={false}
+      aria-label="Mapa de ubicación de Central 504 en Pontejos, Cantabria"
     >
       <TileLayer
         attribution='&copy; <a href="https://www.esri.com/">Esri</a>'
         url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
       />
-      <Marker position={POSITION} icon={customIcon}>
+      <Marker
+        position={POSITION}
+        icon={customIcon}
+        aria-label="Ubicación de Central 504"
+      >
         <Popup>
+          <strong>Central 504</strong>
+          <br />
           Ven a visitarnos para pasar un rato agradable bebiendo, comiendo o
           disfrutando de los mejores eventos deportivos.
         </Popup>

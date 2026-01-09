@@ -75,7 +75,7 @@ export const fetchMenuData = async (): Promise<MenuData> => {
   };
 };
 
-export const fetchDailyMenu = async (): Promise<DailyMenu> => {
+export const fetchDailyMenu = async (): Promise<DailyMenu | null> => {
   const apiBaseUrl = process.env.API_BASE_URL || "http://localhost:8090";
 
   const res = await fetch(
@@ -86,8 +86,17 @@ export const fetchDailyMenu = async (): Promise<DailyMenu> => {
   );
 
   if (!res.ok) {
+    if (res.status === 404) {
+      return null;
+    }
     throw new Error("Error al obtener el menú del día");
   }
 
-  return res.json();
+  try {
+    const data = await res.json();
+    return data || null;
+  } catch (error) {
+    console.error("Error parsing daily menu JSON:", error);
+    return null;
+  }
 };
