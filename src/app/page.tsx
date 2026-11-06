@@ -1,8 +1,8 @@
+import type { Metadata } from "next";
 import Hero from "@/components/hero";
 import Information from "@/components/information";
 import Location from "@/components/location";
 import Services from "@/components/services";
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Inicio",
