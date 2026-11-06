@@ -1,4 +1,3 @@
-import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import {
   CookingPot,
   HouseWifi,
@@ -11,6 +10,7 @@ import {
   ThermometerSnowflake,
   Umbrella,
 } from "lucide-react";
+import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import SectionTitle from "./section-title";
 
 const SERVICES = [

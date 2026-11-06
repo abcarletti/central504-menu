@@ -1,6 +1,6 @@
+import type { Metadata } from "next";
 import DailyMenuContent from "@/components/daily-menu-content";
 import { fetchDailyMenu } from "@/lib/api.service";
-import type { Metadata } from "next";
 
 // Forzar renderizado dinámico (sin pre-render en build)
 export const dynamic = "force-dynamic";

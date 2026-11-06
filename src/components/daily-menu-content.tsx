@@ -1,10 +1,10 @@
 "use client";
 
+import { CakeSlice, Calendar, CookingPot, Utensils } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import type { DailyMenu } from "@/lib/api.service";
-import { CakeSlice, Calendar, CookingPot, Utensils } from "lucide-react";
 import { ShareButton } from "./shared-button";
 
 interface DailyMenuContentProps {
@@ -55,7 +55,7 @@ export default function DailyMenuContent({ menu }: DailyMenuContentProps) {
           <ShareButton
             title="Central504 - Menú del día"
             text={`Mira lo bien que está el menú del día de la Central 504 para hoy por: ${menu.price.toFixed(
-              2
+              2,
             )} €`}
           />
         </CardHeader>

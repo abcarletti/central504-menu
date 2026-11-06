@@ -66,7 +66,7 @@ export const fetchMenuData = async (): Promise<MenuData> => {
 
   // Ordenar categorías alfabéticamente por nombre
   const categories = Array.from(categoriesMap.values()).sort((a, b) =>
-    a.name.localeCompare(b.name, "es")
+    a.name.localeCompare(b.name, "es"),
   );
 
   return {
@@ -82,7 +82,7 @@ export const fetchDailyMenu = async (): Promise<DailyMenu | null> => {
     `${apiBaseUrl}/central504-api/v1/daily-menu/current`,
     {
       next: { revalidate: 900 },
-    }
+    },
   );
 
   if (!res.ok) {
