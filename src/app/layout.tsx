@@ -1,8 +1,8 @@
+import type { Metadata, Viewport } from "next";
+import { Montserrat } from "next/font/google";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { ThemeProvider } from "@/providers/theme-provider";
-import type { Metadata, Viewport } from "next";
-import { Montserrat } from "next/font/google";
 
 import "./globals.css";
 
@@ -50,7 +50,6 @@ export const metadata: Metadata = {
   publisher: siteConfig.name,
   applicationName: siteConfig.name,
   referrer: "origin-when-cross-origin",
-  colorScheme: "light dark",
   formatDetection: {
     email: true,
     address: true,
@@ -123,6 +122,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  colorScheme: "light dark",
 };
 
 // Schema.org JSON-LD para SEO estructurado

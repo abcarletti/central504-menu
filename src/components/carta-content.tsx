@@ -1,5 +1,8 @@
 "use client";
 
+import { UtensilsCrossed } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -7,9 +10,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import type { Category, MenuItem } from "@/lib/api.service";
-import { UtensilsCrossed } from "lucide-react";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 
 function MenuItemCard({ item }: { item: MenuItem }) {
   const [imgError, setImgError] = useState(false);
@@ -124,7 +124,7 @@ export default function CartaContent({ categories, items }: CartaContentProps) {
     >
       {categories.map((category) => {
         const categoryItems = items.filter(
-          (item) => item.category?.id === category.id
+          (item) => item.category?.id === category.id,
         );
         if (categoryItems.length === 0) return null;
         return (
