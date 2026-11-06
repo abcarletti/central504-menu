@@ -1,4 +1,4 @@
-name: Pull Request Validation (API)
+name: Pull Request Validation
 
 on:
   pull_request:
@@ -11,15 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      # La versión de pnpm se toma del campo "packageManager" de package.json
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 9
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: "22"
+          node-version: "24"
           cache: "pnpm"
 
       - name: Install dependencies
@@ -29,7 +28,7 @@ jobs:
         run: pnpm run lint
 
       - name: Type check
-        run: pnpm run typeorm schema:sync
+        run: pnpm run typecheck
 
       - name: Build
         run: pnpm run build
